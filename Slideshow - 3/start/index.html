@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="main.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class='container flex'>
+            <div class='image-wrapper row' id='image'></div>
+            <div class='row nav-wrapper'>
+                <button class='column' onclick='onBackClick()'>Back</button>
+                <button class='column' onclick='onNextClick()'>Next</button>
+            </div>
+        </div>
+
+        <script>
+            const imgEl = document.getElementById('image');
+            function setImageSrc(src) {
+                imgEl.style.backgroundImage = `url(${src})`;
+            }
+
+            function enableImgFrame() {
+                imgEl.classList.add('frame');
+            }
+
+            function disableImgFrame() {
+                imgEl.classList.remove('frame');
+            }
+        </script>
+        <script src='./slideshow.js'></script>
+    </body>
+</html>

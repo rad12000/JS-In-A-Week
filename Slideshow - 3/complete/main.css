@@ -1,0 +1,55 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    flex: 1;
+}
+
+.container {
+    padding: 15px;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    margin-left: 25%;
+}
+
+.image-wrapper {
+    text-align: center;
+    background-image: url(assets/start-photo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+}
+
+.nav-wrapper {
+    justify-content: space-between;
+}
+
+button {
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    background-color: transparent;
+    box-shadow: black 0px 0px 5px;
+    margin: 5px;
+}
+
+button:active {
+    box-shadow: black 0px 0px 5px inset;
+}
+
+.frame {
+    border: groove gold 10px;
+}
