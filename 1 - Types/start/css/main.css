@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    color: white;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+#log-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    padding: 20px;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+}
+
+.log-message { 
+    margin-top: 30px;
+    color: greenyellow;
+}
+
+.log-meta {
+    color: deepskyblue;
+}
