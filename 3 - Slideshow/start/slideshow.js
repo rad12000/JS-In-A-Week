@@ -1,28 +1,5 @@
-/**
- * Sets the image in the webpage
- * @param {string} src - A local path to the image. E.g. "assets/my-image.png"
- */
-function setImage(src) {
-    setImageSrc(src);
-}
+import { setImage, showImageFrame, hideImageFrame } from "./js/helpers.js";
 
-/**
- * Adds the gold frame around the current image
- */
-function showImageFrame() {
-    enableImgFrame();
-}
-
-/**
- * hides the gold frame that's around the image
- */
-function hideImageFrame() {
-    disableImgFrame();
-}
-
-/*******************************************************\
-|                      Start here!                      |
-\*******************************************************/
 const images = [
     'assets/start-photo.jpg'
 ];
@@ -37,3 +14,5 @@ function onNextClick() {
 function onBackClick() {
     alert('Back button was clicked!');
 }
+
+export { onBackClick, onNextClick };

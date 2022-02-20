@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="main.css" rel="stylesheet" />
+        <link href="./css/main.css" rel="stylesheet" />
     </head>
     <body>
         <div class='container flex'>
             <div class='image-wrapper row' id='image'></div>
             <div class='row nav-wrapper'>
-                <button class='column' onclick='onBackClick()'>Back</button>
-                <button class='column' onclick='onNextClick()'>Next</button>
+                <button class='column' id='back-button'>Back</button>
+                <button class='column' id='next-button'>Next</button>
             </div>
         </div>
 
-        <script>
-            const imgEl = document.getElementById('image');
-            function setImageSrc(src) {
-                imgEl.style.backgroundImage = `url(${src})`;
-            }
+        <script type='module'>
+            import { onBackClick, onNextClick } from "./slideshow.js";
 
-            function enableImgFrame() {
-                imgEl.classList.add('frame');
-            }
-
-            function disableImgFrame() {
-                imgEl.classList.remove('frame');
-            }
+            document.getElementById("back-button").addEventListener('click', onBackClick);
+            document.getElementById("next-button").addEventListener('click', onNextClick);
         </script>
-        <script src='./slideshow.js'></script>
     </body>
 </html>

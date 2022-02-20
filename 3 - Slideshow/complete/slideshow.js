@@ -1,18 +1,4 @@
-/**
- * Sets the image in the webpage
- * @param {string} src - A local path to the image. E.g. "assets/my-image.png"
- */
- function setImage(src) {
-    setImageSrc(src);
-}
-
-function showImageFrame() {
-    enableImgFrame();
-}
-
-function hideImageFrame() {
-    disableImgFrame();
-}
+import { setImage, showImageFrame, hideImageFrame } from "./js/helpers.js";
 
 const images = [
     'assets/start-photo.jpg',
@@ -77,3 +63,5 @@ function autoScroll() {
 
 setInterval(autoScroll, 3000);
 */
+
+export { onBackClick, onNextClick };
