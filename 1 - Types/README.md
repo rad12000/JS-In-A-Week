@@ -1,7 +1,11 @@
-# Prompt mini-project
-The goal here is to write the logic to collect a user's name and age, with some valiation:
+# Types mini-project
+The goal here is to log information about a given Star Wars character every 3 seconds:
 
-1. When the page `start`s, `prompt` the user for their name.
-2. `if` they do not provide a name, or they provide a name with a `length` less than 3, `alert` them the valid provided is invalid and ask them for their name again.
-3. `if` they enter a value that Is Not A Number (`isNaN()`), `alert` them the valid provided is invalid and ask them for their age again.
-4. Use the `displayMessage()` function to output the user's `name` and `age`.
+1. Declare a function to `log` any message of your choosing.
+2. Call that function `everyThreeSeconds`.
+3. Within the function you declared, assign a new `const` variable to the result of calling `getRandomStarWarsCharacter`. Log that instead.
+4. Use the object members you receieve from the `getRandomStarWarsCharacter` function to write a message formatted like the following:
+> "Hi my name is `${your character's name}`. I am `${your character's height}` inches tall. My hair is `${your character's hair color}`. AND my skin color is `${your character's skin color}`."
+5. Declare a global variable to count how many characters have been logged. Increment that variable each time your function is called.
+6. Start the message you are logging with 
+> "Log number `${character logged count}`."

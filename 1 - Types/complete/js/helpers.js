@@ -1,29 +1,21 @@
-class logger {
-    /**
-     * Outputs a log message
-     * @param {*} message - the message to display
-     */
-    static log = (message) => {
-        const messageType = Array.isArray(message) ? "array" : typeof message;
-        
-        if (typeof message === "object") {
-            message = JSON.stringify(message);
-        }
-
-        const element = this.#createMessageElement();
-        element.innerHTML = `${message} <span class='log-meta'>- (${messageType}) logged at ${new Date().toLocaleTimeString()}</span>`;
-        
-        const container = document.getElementById("log-container");
-        container.append(element);
-        console.log(message);
+/**
+ * Writes a given message to the log
+ * @param {any} message - The content to log
+ */
+ function log(message) {
+    const messageType = Array.isArray(message) ? "array" : typeof message;
+    
+    if (typeof message === "object") {
+        message = JSON.stringify(message);
     }
 
-    static #createMessageElement = () => {
-        const el = document.createElement("DIV");
-        el.classList.add('log-message');
-
-        return el;
-    }
+    const element = document.createElement("DIV");
+    element.classList.add('log-message');
+    element.innerHTML = `${message} <span class='log-meta'>- (${messageType}) logged at ${new Date().toLocaleTimeString()}</span>`;
+    
+    const container = document.getElementById("log-container");
+    container.append(element);
+    console.log(message);
 }
 
 //#region Interval
@@ -207,4 +199,4 @@ function getRandomStarWarsCharacter() {
 }
 //#endregion
 
-export { logger, everyThreeSeconds, getRandomStarWarsCharacter };
+export { log, everyThreeSeconds, getRandomStarWarsCharacter };

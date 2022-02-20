@@ -1,1 +1,1 @@
-import { logger, everyThreeSeconds, getRandomStarWarsCharacter } from "./helpers.js";
+import { log, everyThreeSeconds, getRandomStarWarsCharacter } from "./helpers.js";
