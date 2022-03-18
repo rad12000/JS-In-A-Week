@@ -14,8 +14,12 @@ body {
 }
 
 .menu-bar {
-    width: 50vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
     height: 40px;
+    text-align: center;
 }
 
 button {
@@ -25,11 +29,13 @@ button {
 }
 
 #tic-tac-toe-box {
-    width: 50vw;
-    height: 50vw;
+    width: 80vw;
+    height: 80vw;
     border: solid black 2px;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    bottom: 10px;
 }
 
 .row {
@@ -50,7 +56,7 @@ button {
     content: "";
     border: solid red 3px;
     display: flex;
-    width: calc(50vw / 3 * 0.5);
+    width: calc(80vw / 3 * 0.5);
     transform: rotate(45deg);
     align-items: center;
     justify-content: center;
@@ -61,7 +67,7 @@ button {
     content: "";
     border: solid red 3px;
     display: flex;
-    width: calc(50vw / 3 * 0.5);
+    width: calc(80vw / 3 * 0.5);
     transform: rotate(-45deg);
     align-items: center;
     justify-content: center;
@@ -72,10 +78,28 @@ button {
     content: "";
     border: solid blue 3px;
     display: flex;
-    width: calc(50vw / 3 * 0.5);
-    height: calc(50vw / 3 * 0.5);
+    width: calc(80vw / 3 * 0.5);
+    height: calc(80vw / 3 * 0.5);
     align-items: center;
     justify-content: center;
     position: absolute;
     border-radius: 100%;
+}
+
+.x-mark.by-height::before {
+    width: calc(80vh / 3 * 0.5);
+}
+
+.x-mark.by-height::after {
+    width: calc(80vh/ 3 * 0.5);
+}
+
+.o-mark.by-height::after {
+    width: calc(80vh / 3 * 0.5);
+    height: calc(80vh / 3 * 0.5);
+}
+
+#tic-tac-toe-box.by-height {
+    width: 80vh;
+    height: 80vh;
 }

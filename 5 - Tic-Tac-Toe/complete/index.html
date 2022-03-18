@@ -31,7 +31,33 @@
 
         <script src="./tic-tac-toe.js"></script>
         <script>
-            window.addEventListener('load', () => addBoxClickEventListeners());
+            window.addEventListener('load', () => {
+                addBoxClickEventListeners();
+                resizeBox();
+            });
+
+            window.addEventListener('resize', () => resizeBox())
+            
+            function resizeBox() {
+                const height = window.innerHeight;
+                const width = window.innerWidth;
+                const cols = document.getElementsByClassName("col");
+                const box = document.getElementById("tic-tac-toe-box");
+
+                if (height < width) {
+                    for (const col of cols) {
+                        col.classList.add("by-height")
+                    }
+
+                    box.classList.add("by-height");
+                } else {
+                    for (const col of cols) {
+                        col.classList.remove("by-height")
+                    }
+
+                    box.classList.remove("by-height");
+                }
+            }
 
             function addBoxClickEventListeners() {
                 const boxes = document.getElementsByClassName("col");
@@ -92,6 +118,8 @@
                         column.className = `col ${markClass}`;
                     }
                 }
+
+                resizeBox();
             }
 
             function getClass(mark) {
