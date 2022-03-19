@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <body>
+        <div class="container">
+            <table id="table">
+            </table>
+        </div>
+
+        <script type="module">
+            import $ from "../../jquery/src/jquery.js";
+            import { handleLoad } from "./js/spreadsheet.js";
+
+            $(document).ready(() => {
+                handleLoad();
+            });
+        </script>
+    </body>
+</html>
