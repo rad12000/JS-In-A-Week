@@ -1,0 +1,57 @@
+:root {
+  --ken-width: 140px;
+  --ken-height: 160px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+#background-img {
+  width: 1150px;
+  height: 660px;
+  position: relative;
+  top: calc(50% - 660px / 2);
+}
+
+#ken { 
+  position: fixed;
+  top: calc((100% - 660px) / 2 + 390px);
+  left: calc((100vw - 1150px) / 2);
+  width: var(--ken-width); 
+  height: var(--ken-height);
+  background-image: url('../../sprites/sprite.png'); 
+  background-size: 700%;
+  transition: left 500ms;
+}
+
+#ken.reverse {
+  background-image: url('../../sprites/sprite-reversed.png');
+  background-position: calc(var(--ken-width) * -6) calc(var(--ken-height) * 0);
+}
+
+.walk-right { 
+  animation: walk-right steps(4) 0.5s infinite; 
+}
+
+.walk.reverse { 
+  animation: walk-left steps(4) 0.5s infinite; 
+}
+
+@keyframes walk-right {
+  from { background-position: 0px calc(var(--ken-height) * -3); }
+  to { background-position: calc(var(--ken-width) * -4) calc(var(--ken-height) * -3); }
+}
+
+@keyframes walk-left {
+  from { background-position: calc(var(--ken-width) * -2) calc(var(--ken-height) * -3); }
+  to { background-position: calc(var(--ken-width) * -6) calc(var(--ken-height) * -3); }
+}

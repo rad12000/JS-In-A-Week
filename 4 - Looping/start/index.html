@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <body>
+        <img src="../sprites/sf-background.jpeg" id="background-img" />
+        <div id="ken"></div>
+
+        <script type="module">
+            import $ from "../jquery/src/jquery.js";
+            import { handleKeyUp, handleKeyPress } from "./js/looping.js"
+
+            $(document).ready( () => {
+                window.ken =  $('#ken');
+            });
+
+            $(document).on('keydown', function(e) {
+                handleKeyPress(e.keyCode);
+            });
+
+            $(document).on('keyup', function() {
+                handleKeyUp();
+            });
+        </script>
+    </body>
+</html>

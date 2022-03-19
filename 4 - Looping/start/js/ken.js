@@ -1,0 +1,82 @@
+import $ from "../../jquery/src/jquery.js";
+
+/**
+ * Moves Ken one full step to the right
+ * @returns {Promise<number>} The number of pixels from the right that Ken is.
+ */
+function stepRightAsync() {
+    let resolver;
+    const promise = new Promise((resolve, _) => {
+        resolver = resolve;
+    });
+
+    window.ken.removeClass('reverse')
+    window.ken.addClass('walk-right');
+
+    const currentLeft = window.ken.position().left;
+    const farthestAllowedRight = getRightBarrier();
+    let newLeft = currentLeft + 100;
+
+    if (newLeft > farthestAllowedRight) {
+        newLeft = farthestAllowedRight;
+    }
+
+    window.ken.css("left", `${newLeft}px`)
+
+    setTimeout(() => { 
+        window.ken.removeClass('walk-right');
+        resolver(newLeft);
+    }, 500);
+
+    return promise;
+}
+
+/**
+ * Moves Ken one full step to the left
+ * @returns {Promise<number>} The number of pixels from the left that Ken is.
+ */
+function stepLeftAsync() {
+    let resolver;
+    const promise = new Promise((resolve, _) => {
+        resolver = resolve;
+    });
+
+    window.ken.addClass('walk reverse');
+
+    const currentLeft = window.ken.position().left;
+    const farthestAllowedLeft = getLeftBarrier();
+    let newLeft = currentLeft - 100;
+
+    if (newLeft < farthestAllowedLeft) {
+        newLeft = farthestAllowedLeft;
+    }
+
+    window.ken.css("left", `${newLeft}px`)
+
+    setTimeout(() => { 
+        window.ken.removeClass('walk');
+        resolver(newLeft);
+    }, 500);
+
+    return promise;
+}
+
+const frameWidth = 1150;
+
+function getLeftBarrier() {
+    const body = $("body");
+    const bodyWidth = body.innerWidth();
+
+    return (bodyWidth - frameWidth) / 2;
+}
+
+function getRightBarrier() {
+    const body = $("body");
+    const bodyWidth = body.innerWidth();
+    const distanceFromLeftEdge = ((bodyWidth - frameWidth) / 2) - 160;
+
+    return distanceFromLeftEdge + frameWidth;
+}
+
+
+export { stepLeftAsync, stepRightAsync, getLeftBarrier }
