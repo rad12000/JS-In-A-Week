@@ -1,4 +1,4 @@
-import $ from "../../jquery/src/jquery.js";
+import $ from "../../../jquery/src/jquery.js";
 
 /**
  * Moves Ken one full step to the right
