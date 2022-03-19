@@ -1,6 +1,9 @@
 import { appendRow, appendHeader, TableCell } from "./helpers.js"
 import { tableData } from "../../table-data.js"
 
+/**
+ * Called when the page
+ */
 function handleLoad() {
     // Set header
     const header = appendHeader();
