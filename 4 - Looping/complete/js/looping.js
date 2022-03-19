@@ -1,13 +1,20 @@
 import { Keys, Key } from "../../keys.js";
 import { stepRightAsync, stepLeftAsync, playAreaWidth } from "./ken.js" 
 
+const stepWidth = playAreaWidth / 7;
 let keyIsPressed = false;
 
 /**
  * Function called when the page loads
  */
 async function handleLoad() {
-    console.log("page loaded!")
+    for (let i = 0; i < 7; i++) {
+        await stepRightAsync(stepWidth)
+    }
+
+    for (let i = 0; i < 7; i++) {
+        await stepLeftAsync(stepWidth)
+    }
 }
 
 /**
@@ -17,16 +24,21 @@ async function handleLoad() {
 async function handleKeyPress(keyCode) {
     keyIsPressed = true;
 
-    console.log("key pressed!")
+    if (keyCode === Keys.RightArrow) {
+        while (keyIsPressed) {
+            await stepRightAsync()
+        }
+    }
+
+    if (keyCode === Keys.LeftArrow) {
+        while (keyIsPressed) {
+            await stepLeftAsync()
+        }
+    }
 }
 
-/**
- * Handler for key up
- */
 function handleKeyUp() {
     keyIsPressed = false;
-
-    console.log("key up!")
 }
 
 export { handleKeyPress, handleKeyUp, handleLoad }
